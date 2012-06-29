@@ -8,17 +8,18 @@ from https://github.com/chronossc/django-breadcrumbs/
 1. Install it 
 2. Add it to INSTALLED_APPS
 
-    INSTALLED_APPS = {
-        ...
-        'breadcrumbs': 'breadcrumbs'
-    }
-
+	INSTALLED_APPS = {
+		...
+		'breadcrumbs': 'breadcrumbs'
+	}
+	
 3. Make sure that 'london.templates.context_processors.request' is in TEMPLATE_CONTEXT_PROCESSORS
 
-    TEMPLATE_CONTEXT_PROCESSORS = (
-        ...
-        'london.templates.context_processors.request',
-    )
+	TEMPLATE_CONTEXT_PROCESSORS = (
+		...
+		'london.templates.context_processors.request',
+		...
+	)
 
 4. Add breadcrumbs.middleware.BreadcrumbsMiddleware to your MIDDLEWARE_CLASSES
 
@@ -41,7 +42,7 @@ from https://github.com/chronossc/django-breadcrumbs/
 	request.breadcrumbs( ( obj1, obj2, obj3, obj4, ......) )
 	request.breadcrumbs( [ obj1, obj2, obj3, obj4, ......] )
 	
-### Hot to use them in templates
+### How to use them in templates
 
 	{% for breadcrumb in request.breadcrumbs %}
 	<a href="{{ breadcrumb.url }}">{{ breadcrumb.name }}</a>{% if not forloop.last %} >> {% endif %}
