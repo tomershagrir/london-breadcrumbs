@@ -8,27 +8,27 @@ from https://github.com/chronossc/django-breadcrumbs/
 1. Install it 
 2. Add it to INSTALLED_APPS
 
-	INSTALLED_APPS = {
-		...
-		'breadcrumbs': 'breadcrumbs'
-		...
-	}
+    INSTALLED_APPS = {
+        ...
+        'breadcrumbs': 'breadcrumbs'
+        ...
+    }
 	
 3. Make sure that 'london.templates.context_processors.request' is in TEMPLATE_CONTEXT_PROCESSORS
 
-	TEMPLATE_CONTEXT_PROCESSORS = (
-		...
-		'london.templates.context_processors.request',
-		...
-	)
+    TEMPLATE_CONTEXT_PROCESSORS = (
+        ...
+        'london.templates.context_processors.request',
+        ...
+    )
 	
 4. Add breadcrumbs.middleware.BreadcrumbsMiddleware to your MIDDLEWARE_CLASSES
 
-	MIDDLEWARE_CLASSES = (
-		...
-		'breadcrumbs.middleware.BreadcrumbsMiddleware',
-		...
-	)
+    MIDDLEWARE_CLASSES = (
+        ...
+        'breadcrumbs.middleware.BreadcrumbsMiddleware',
+        ...
+    )
 
 ### How to add breadcrumbs:
 
