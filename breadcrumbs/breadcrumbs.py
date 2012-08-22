@@ -116,7 +116,7 @@ class Breadcrumbs(Singleton):
                         breadcrumb %s in %s" % (index,type(obj).__name__))
             if len(obj) != 2:
                 raise BreadcrumbsInvalidFormat(
-                    u"Wrong itens number in breadcrumb %s in %s. \
+                    u"Wrong items number in breadcrumb %s in %s. \
                     You need to send as example (name,url)" % \
                     (index,type(obj).__name__)
                 )
