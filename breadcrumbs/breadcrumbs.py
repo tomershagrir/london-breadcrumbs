@@ -2,11 +2,13 @@
 Classes to add request.breadcrumbs as one class to have a list of breadcrumbs
 TODO: maybe is better to move to contrib/breadcrumbs
 """
-
 from london.conf import settings
 from london.utils.safestring import mark_safe
 from london.utils.encoding import force_unicode 
 import sys
+
+from app_settings import BREADCRUMBS_HOME_TITLE
+
 
 class Singleton(object):
     """
@@ -69,16 +71,17 @@ class Breadcrumbs(Singleton):
             return self
         return self.__init__(*args,**kwargs)
 
-    def __fill_home(self):
+    def __fill_home(self, title):
         # fill home if settings.BREADCRUMBS_AUTO_HOME is True
         if self.__autohome and len(self.__bds) == 0:
-            self.__fill_bds( ( "Home", u"/" ) )
+            home_title = BREADCRUMBS_HOME_TITLE if BREADCRUMBS_HOME_TITLE else title
+            self.__fill_bds((home_title, u"/"))
 
-    def _clean(self):
+    def _clean(self, title=''):
         self.__bds = []
         self.__autohome=getattr(settings,'BREADCRUMBS_AUTO_HOME',False)
         self.__urls =[]
-        self.__fill_home()
+        self.__fill_home(title)
 
     def __init__(self,*args,**kwargs):
         """
